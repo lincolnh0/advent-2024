@@ -1,3 +1,5 @@
+from collections import Counter
+
 inputArray = [
     [18102, 93258],
     [34171, 50404],
@@ -1008,9 +1010,22 @@ input2 = [
     item[1] for item in inputArray
 ]
 
-def solution(input_list_1, input_list_2):
+def solution_p1(input_list_1, input_list_2):
+    zip_list = list(zip(sorted(input_list_1), sorted(input_list_2)))
 
+    sum_of_difference = sum([abs(item[0] - item[1]) for item in zip_list])
 
-if __name__ == "main":
-    solution(input1, input)
+    print(sum_of_difference)
+
+def solution_p2(input_list_1, input_list_2):
+    occurrence_counter = Counter(input_list_2)
+
+    output = sum([occurrence_counter[item] * item for item in input_list_1])
+
+    print(output)
+
+if __name__ == "__main__":
+    solution_p1(input1, input2)
+
+    solution_p2(input1, input2)
 
