@@ -1,4 +1,3 @@
-
 input_data = [
     [73, 75, 78, 81, 80],
     [81, 82, 83, 86, 89, 89],
@@ -1005,20 +1004,18 @@ input_data = [
 
 def solution_p1(reactor_data):
     counter = 0
-    unsafe_reports = []
     for report in reactor_data:
         # Check asc and desc conditions
         safety_conditions = [sorted(report) == report or sorted(report, reverse=True) == report]
 
         for i in range(len(report) - 1):
-            safety_conditions.append(1 <= abs(report[i] - report[i+1]) <= 3)
+            safety_conditions.append(1 <= abs(report[i] - report[i + 1]) <= 3)
 
         if all(safety_conditions):
             counter += 1
-        else:
-            unsafe_reports.append(report)
 
     print(counter)
+
 
 def solution_p2(unsafe_reports):
     # Make the data safe by removing one level
@@ -1027,7 +1024,7 @@ def solution_p2(unsafe_reports):
     for report_index, report in enumerate(unsafe_reports):
         for removed_index in range(len(report)):
             safety_conditions = []
-            new_report = report[:removed_index] + report[removed_index+1:]
+            new_report = report[:removed_index] + report[removed_index + 1:]
 
             safety_conditions.append(sorted(new_report) == new_report or sorted(new_report, reverse=True) == new_report)
 
@@ -1039,6 +1036,7 @@ def solution_p2(unsafe_reports):
                 break
 
     print(counter)
+
 
 if __name__ == "__main__":
     solution_p1(input_data)

@@ -1010,12 +1010,14 @@ input2 = [
     item[1] for item in inputArray
 ]
 
+
 def solution_p1(input_list_1, input_list_2):
     zip_list = list(zip(sorted(input_list_1), sorted(input_list_2)))
 
     sum_of_difference = sum([abs(item[0] - item[1]) for item in zip_list])
 
     print(sum_of_difference)
+
 
 def solution_p2(input_list_1, input_list_2):
     occurrence_counter = Counter(input_list_2)
@@ -1024,8 +1026,8 @@ def solution_p2(input_list_1, input_list_2):
 
     print(output)
 
+
 if __name__ == "__main__":
     solution_p1(input1, input2)
 
     solution_p2(input1, input2)
-
