@@ -3,13 +3,15 @@ import re
 
 def solution_p1(input_data):
 
+    # Transpose matrix and look for both forward and backward spelled XMAS
     horizontal_matrix = np.array([[y for y in x.strip()] for x in input_data.splitlines() if x.strip()])
     vertical_matrix = horizontal_matrix.transpose()
 
+    # Rotate the matrix 45 degrees both way and perform the same check
     rotated_matrix = []
     height, width = horizontal_matrix.shape
     counter = 0
-    while counter <= height + width - 2:
+    while counter <= height + width:
         diagonal_row = []
         reversed_row = []
         for i in range(height):
