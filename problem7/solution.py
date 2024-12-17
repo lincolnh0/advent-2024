@@ -1,6 +1,4 @@
 import re
-from functools import reduce
-from operator import mul
 
 def clean_data(input_data):
     line_split_regex = r"(\d*)\: (.*)"
