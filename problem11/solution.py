@@ -10,7 +10,12 @@ def solution_p1(input_data):
             if digit == 0:
                 new_arrangement.append(1)
             elif len(str(digit)) % 2 == 0:
-                new_arrangement.extend([int(str(digit)[:len(str(digit)) // 2]), int(str(digit)[len(str(digit)) // 2:])])
+                new_arrangement.extend(
+                    [
+                        int(str(digit)[: len(str(digit)) // 2]),
+                        int(str(digit)[len(str(digit)) // 2 :]),
+                    ]
+                )
             else:
                 new_arrangement.append(digit * 2024)
 
@@ -25,8 +30,8 @@ def blink_change(digit):
         yield 1
 
     elif len(str(digit)) % 2 == 0:
-        yield int(str(digit)[:len(str(digit)) // 2])
-        yield int(str(digit)[len(str(digit)) // 2:])
+        yield int(str(digit)[: len(str(digit)) // 2])
+        yield int(str(digit)[len(str(digit)) // 2 :])
     else:
         yield digit * 2024
 
