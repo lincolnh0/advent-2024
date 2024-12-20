@@ -12,7 +12,7 @@ def get_possible_operator_p1(target, current, numbers):
     # Base case: There is only one number.
     if len(numbers) == 1:
         return current + numbers[0] == target or current * numbers[0] == target
-    # Recursive case: There are more than one number
+    # Recursive case: There are more than one number.
     return get_possible_operator_p1(target, current + numbers[0], numbers[1:]) or get_possible_operator_p1(target, current * numbers[0], numbers[1:])
 
 
@@ -29,7 +29,7 @@ def get_possible_operator_p2(target, current, numbers):
     # Base case: There is only one number.
     if len(numbers) == 1:
         return current + numbers[0] == target or current * numbers[0] == target or str(current) + str(numbers[0]) == str(target)
-    # Recursive case: There are more than one number
+    # Recursive case: There are more than one number.
     return get_possible_operator_p2(target, current + numbers[0], numbers[1:]) or get_possible_operator_p2(target, current * numbers[0], numbers[1:]) or get_possible_operator_p2(target, int(str(current) + str(numbers[0])), numbers[1:])
 
 
